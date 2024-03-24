@@ -1,4 +1,4 @@
-from movies import Movie
+from movies import Movie, IMovieFinder
 
 data = [
     Movie(year=1972, name="The Lift", director="Robert Zemeckis"),
@@ -29,7 +29,7 @@ data = [
     Movie(year=2020, name="The Witches", director="Robert Zemeckis"),
 ]
 
-class MovieFinder:
+class MovieFinder(IMovieFinder):
 
     def find_all(self):
         return data
