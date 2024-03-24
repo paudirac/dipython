@@ -6,6 +6,10 @@ from movies import Movie, IMovieFinder
 class MovieLister:
 
     def __init__(self, finder: IMovieFinder):
+        if finder is None:
+            raise TypeError("finder canno't be None")
+        if not isinstance(finder, IMovieFinder):
+            raise TypeError("finder should be an IMovieFinder")
         self.finder = finder
 
     def movies_directed_by(self, director: str) -> typing.List[Movie]:
