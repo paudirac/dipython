@@ -1,13 +1,12 @@
 import typing
 
-from movies import Movie
-from finder import MovieFinder
+from movies import Movie, IMovieFinder
 
 
 class MovieLister:
 
-    def __init__(self):
-        self.finder = MovieFinder()
+    def __init__(self, finder: IMovieFinder):
+        self.finder = finder
 
     def movies_directed_by(self, director: str) -> typing.List[Movie]:
         all_movies = self.finder.find_all()
