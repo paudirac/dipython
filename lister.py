@@ -1,9 +1,17 @@
 import typing
+import abc
 
 from movies import Movie, IMovieFinder
 
 
-class MovieLister:
+class IMovieLister(abc.ABC):
+
+    @abc.abstractmethod
+    def movies_directed_by(self, director: str) -> typing.List[Movie]:
+        pass
+
+
+class MovieLister(IMovieLister):
 
     def __init__(self, finder: IMovieFinder):
         if finder is None:
